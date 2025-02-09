@@ -36,7 +36,7 @@ As part of my **2-month java stack internship** at **Infosys Springboard**, I de
 ### Steps to Run Locally
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/RentWheelZ.git
+   git clone https://github.com/mukundan-13/RentWheelZ.git
    ```
 2. **Backend Setup**:
    - Navigate to the backend folder:
