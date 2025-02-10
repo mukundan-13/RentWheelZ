@@ -8,6 +8,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 
 const VehicleList = () => {
+  const API_BASE_URL="https://rentwheelz-zvep.onrender.com"
   const [vehicles, setVehicles] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ const VehicleList = () => {
   const fetchVehicles = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:8085/api/vehicles/available', {
+      const response = await axios.get(`${API_BASE_URL}/api/vehicles/available`, {
         params: {
           companyName: companyName || undefined,
           sortBy: sortByPrice || undefined,

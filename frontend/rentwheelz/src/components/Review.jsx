@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 
 const AddReviewModal = ({ open, onClose, vehicleId, bookingId}) => {
+  const API_BASE_URL="https://rentwheelz-zvep.onrender.com"
   const [comment, setComment] = useState('');
   const [rating, setRating] = useState('');
 
@@ -38,7 +39,7 @@ const AddReviewModal = ({ open, onClose, vehicleId, bookingId}) => {
       };
 
       await axios.post(
-        `http://localhost:8085/api/reviews`,
+        `${API_BASE_URL}/api/reviews`,
         payload,
         {
           headers: {

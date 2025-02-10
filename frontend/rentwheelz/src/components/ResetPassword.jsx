@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useSearchParams, useNavigate } from 'react-router-dom'; 
 
 const ResetPassword = () => {
+  const API_BASE_URL="https://rentwheelz-zvep.onrender.com"
   const [searchParams] = useSearchParams(); 
   const token = searchParams.get('token'); 
   const [password, setPassword] = useState('');
@@ -28,7 +29,7 @@ const ResetPassword = () => {
     try {
       console.log(password);
       console.log(token);
-      await axios.post('http://localhost:8085/api/auth/reset-password', { token, newPassword: password });
+      await axios.post(`${API_BASE_URL}/api/auth/reset-password`, { token, newPassword: password });
       setMessage('Your password has been reset successfully.');
       setTimeout(() => {
         navigate('/login');

@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const BookingSummary = () => {
+  const API_BASE_URL="https://rentwheelz-zvep.onrender.com"
   const { bookingId } = useParams();
   const navigate = useNavigate();
   const [booking, setBooking] = useState(null);
@@ -12,10 +13,10 @@ const BookingSummary = () => {
   useEffect(() => {
     const fetchBookingDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:8085/api/bookings/${bookingId}`);
+        const response = await axios.get(`${API_BASE_URL}/api/bookings/${bookingId}`);
         setBooking(response.data);
 
-        const vehicleResponse = await axios.get(`http://localhost:8085/api/vehicles/${response.data.vehicle.id}`);
+        const vehicleResponse = await axios.get(`${API_BASE_URL}/api/vehicles/${response.data.vehicle.id}`);
         setVehicle(vehicleResponse.data);
       } catch (error) {
         console.error('Error fetching booking or vehicle details:', error);

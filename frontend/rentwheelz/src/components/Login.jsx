@@ -4,7 +4,9 @@ import Swal from 'sweetalert2';
 import { TextField, Button, Container, Box, Typography, Paper, Grid } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 
+
 const Login = () => {
+    const API_BASE_URL="https://rentwheelz-zvep.onrender.com"
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -13,7 +15,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8085/api/auth/login', {
+            const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
                 email,
                 password,
             });
@@ -25,7 +27,7 @@ const Login = () => {
 
             const token = localStorage.getItem('token');
             console.log(token);
-            const res = await axios.get('http://localhost:8085/user/profile', {
+            const res = await axios.get(`${API_BASE_URL}/user/profile`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

@@ -3,6 +3,7 @@ import { TextField, Button, Typography, Alert } from '@mui/material';
 import axios from 'axios';
 
 const ResetPasswordLink = () => {
+  const API_BASE_URL="https://rentwheelz-zvep.onrender.com"
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
@@ -13,7 +14,7 @@ const ResetPasswordLink = () => {
     setMessage('');
 
     try {
-      await axios.post('http://localhost:8085/api/auth/forgot-password', { email });
+      await axios.post(`${API_BASE_URL}/api/auth/forgot-password`, { email });
       setMessage('A password reset link has been sent to your email.');
     } catch (error) {
       setError('There was an error sending the reset link. Please try again.');

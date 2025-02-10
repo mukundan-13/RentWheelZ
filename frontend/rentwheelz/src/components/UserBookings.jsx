@@ -4,7 +4,7 @@ import axios from 'axios';
 import AddReview from './Review'; 
 
 import Swal from 'sweetalert2';
-
+const API_BASE_URL="https://rentwheelz-zvep.onrender.com"
 
 const UserBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -20,14 +20,14 @@ const UserBookings = () => {
       try {
         const token = localStorage.getItem('token');
         const userId = localStorage.getItem('userId');
-        const response = await axios.get(`http://localhost:8085/api/bookings/user/${userId}`, {
+        const response = await axios.get(`${API_BASE_URL}/api/bookings/user/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
         setBookings(response.data);
 
-        const reviewsResponse = await axios.get(`http://localhost:8085/api/reviews/user/${userId}`, {
+        const reviewsResponse = await axios.get(`${API_BASE_URL}/api/reviews/user/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -59,7 +59,7 @@ const UserBookings = () => {
           const token = localStorage.getItem('token');
           const userId = localStorage.getItem('userId');
 
-          const reviewsResponse = await axios.get(`http://localhost:8085/api/reviews/user/${userId}`, {
+          const reviewsResponse = await axios.get(`${API_BASE_URL}/api/reviews/user/${userId}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -90,7 +90,7 @@ const handleCancelBooking = async (bookingId) => {
 
     if (result.isConfirmed) {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:8085/api/bookings/cancel/${bookingId}`, {}, {
+      await axios.put(`${API_BASE_URL}/api/bookings/cancel/${bookingId}`, {}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -99,7 +99,7 @@ const handleCancelBooking = async (bookingId) => {
       setBookings((prevBookings) => prevBookings.filter((booking) => booking.id !== bookingId));
 
       const userId = localStorage.getItem('userId');
-      const response = await axios.get(`http://localhost:8085/api/bookings/user/${userId}`, {
+      const response = await axios.get(`${API_BASE_URL}/api/bookings/user/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

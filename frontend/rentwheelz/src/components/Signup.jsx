@@ -4,7 +4,9 @@ import Swal from 'sweetalert2';
 import { TextField, Button, Container, Box, Grid, Typography, Paper } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 
+
 const Signup = () => {
+    const API_BASE_URL="https://rentwheelz-zvep.onrender.com"
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -26,7 +28,7 @@ const Signup = () => {
         }
 
         try {
-            await axios.post('http://localhost:8085/api/auth/register', {
+            await axios.post(`${API_BASE_URL}/api/auth/register`, {
                 firstName,
                 lastName,
                 email,

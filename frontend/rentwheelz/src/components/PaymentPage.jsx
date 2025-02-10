@@ -3,8 +3,8 @@ import { Box, Typography, TextField, Button, Radio, RadioGroup, FormControlLabel
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-
 const PaymentPage = () => {
+  const API_BASE_URL="https://rentwheelz-zvep.onrender.com"
   const location = useLocation();
   const { totalAmount, vehicleId } = location.state || {};
 
@@ -62,7 +62,7 @@ const PaymentPage = () => {
 
       const token = localStorage.getItem('token');
     
-      const response = await fetch('http://localhost:8085/api/bookings', {
+      const response = await fetch(`${API_BASE_URL}/api/bookings`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -5,6 +5,7 @@ import { Button, TextField, Typography, Paper, Card, CardContent } from '@mui/ma
 import { useNavigate } from 'react-router-dom';
 
 const UserProfile = () => {
+    const API_BASE_URL="https://rentwheelz-zvep.onrender.com"
     const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -13,7 +14,7 @@ const UserProfile = () => {
     const fetchUserProfile = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:8085/user/profile', {
+            const response = await axios.get(`${API_BASE_URL}/user/profile`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -30,7 +31,7 @@ const UserProfile = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            await axios.put('http://localhost:8085/user/profile', user, {
+            await axios.put(`${API_BASE_URL}/user/profile`, user, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -59,7 +60,7 @@ const UserProfile = () => {
         if (confirmDelete.isConfirmed) {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.delete('http://localhost:8085/user/profile', {
+                const response = await axios.delete(`${API_BASE_URL}/user/profile`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
