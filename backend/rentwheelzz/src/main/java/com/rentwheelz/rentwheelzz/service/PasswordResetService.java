@@ -36,7 +36,7 @@ public class PasswordResetService {
             userRepository.save(user);
 
 
-            String resetLink = "https://rentwheelz-zvep.onrender.com/reset-password?token=" + token;
+            String resetLink = "https://rentwheelz.netlify.app/reset-password?token=" + token;
             sendEmail(user.getEmail(), resetLink);
         } else {
 
