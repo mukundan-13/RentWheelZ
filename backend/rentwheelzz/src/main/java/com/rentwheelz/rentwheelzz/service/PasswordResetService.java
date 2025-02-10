@@ -36,7 +36,7 @@ public class PasswordResetService {
             userRepository.save(user);
 
 
-            String resetLink = "http://localhost:3000/reset-password?token=" + token;
+            String resetLink = "https://rentwheelz-zvep.onrender.com/reset-password?token=" + token;
             sendEmail(user.getEmail(), resetLink);
         } else {
 
