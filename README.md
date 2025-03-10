@@ -19,6 +19,8 @@ As part of my **2-month java stack internship** at **Infosys Springboard**, I de
   - **MySQL**: Used for production to ensure permanent data storage
 - 🔐 **Authentication**: JWT (JSON Web Token) for secure login
 
+**Check the live site [here](https://rentwheelz.netlify.app/)**
+
 ## 🚀Future improvements
 
 **💳 Payment Integration**
