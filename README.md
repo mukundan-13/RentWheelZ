@@ -65,6 +65,10 @@ As part of my **2-month java stack internship** at **Infosys Springboard**, I de
      ```
 4. Open your browser and go to `http://localhost:3000` to access the application.
 
+## Documentation  
+- **Project Documentation:** [📄 View Here](https://docs.google.com/document/d/1ExAFLBTDgW_KdQ4QtHC787nFqudV-o1s/edit?usp=drivesdk)  
+- **Task List:** [✅ View Here](https://docs.google.com/document/d/1j6K0a-6k4h4VitGGzRv9px_L6rCsGlZD/edit?usp=drivesdk)
+- **Check the live site [here](https://rentwheelz.netlify.app/)**
 
 ## 🤝 Suggestions
 
